@@ -7,9 +7,11 @@
                 <b>Admissions Template</b>
 
                 <script
-                        src="https://cdn.ckeditor.com/4.11.1/standard/ckeditor.js"/>
-                <script type = "text/javascript" >
-                function fromToXml(form){
+                        src="https://cdn.ckeditor.com/4.11.1/standard/ckeditor.js">
+
+
+
+                    function fromToXml(form){
                     console.log(form)
                     var
                     xmldata=['&lt;?xml version="1.0"?&gt;'];
@@ -28,7 +30,6 @@
                     xmldata.push("&lt;/form&gt;");
                     console.log(xmldata);
                     return xmldata.join("\n");
-
                     }
                 </script>
             </head>
@@ -45,15 +46,19 @@
                         </label>
                         <br></br>
                         <!-- <input type="text" id="{$eltID}" name="{$eltID}"/><br></br> -->
-                        <textarea id="{$level1Count}" name="{$eltID}" rows="5"
+                        <textarea id="{$level1Count}" name="{$eltID}" rows="10"
                                   cols="80">
+                            
                         </textarea>
 
+                        <script type="text/javascript">
 
+                            CKEDITOR.replace(document.getElementById();
+                        </script>
                     </xsl:for-each>
                     <script type="text/javascript">
                         var colATotal=
-                        &lt;xsl:value-of select='count(admission/element)' />
+                        <xsl:value-of select='count(admission/element)' />
                         ;
 
                         function printA(){
@@ -68,7 +73,6 @@
                         printA();
 
                     </script>
-
                     <button type="button" onclick="fromToXml(myform)">Create</button>
                 </form>
 
