@@ -28,6 +28,7 @@
                     xmldata.push("&lt;/form&gt;");
                     console.log(xmldata);
                     return xmldata.join("\n");
+
                     }
                 </script>
             </head>
@@ -44,16 +45,15 @@
                         </label>
                         <br></br>
                         <!-- <input type="text" id="{$eltID}" name="{$eltID}"/><br></br> -->
-                        <textarea id="{$level1Count}" name="{$eltID}" rows="10"
+                        <textarea id="{$level1Count}" name="{$eltID}" rows="5"
                                   cols="80">
-                            This is my textarea to be replaced with CKEditor 4.
                         </textarea>
 
 
                     </xsl:for-each>
                     <script type="text/javascript">
                         var colATotal=
-                        <xsl:value-of select='count(admission/element)' />
+                        &lt;xsl:value-of select='count(admission/element)' />
                         ;
 
                         function printA(){
@@ -68,6 +68,7 @@
                         printA();
 
                     </script>
+
                     <button type="button" onclick="fromToXml(myform)">Create</button>
                 </form>
 
