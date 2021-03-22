@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <admission>
-    <element id = "Programmes_Offered">
+    <element name = "Programmes_Offered">
     </element>
-    <element id="Duration">
+    <element name="Duration">
 
     </element>
-    <element id="Eligibility">
+    <element name="Eligibility">
 
     </element>
 </admission>
