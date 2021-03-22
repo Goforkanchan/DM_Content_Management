@@ -7,23 +7,24 @@
                 <b>Admissions Template</b>
 
                 <script
-                        src="https://cdn.ckeditor.com/4.11.1/standard/ckeditor.js">
+                        src="https://cdn.ckeditor.com/4.11.1/standard/ckeditor.js"/>
 
-
+                <script type = "text/javascript" >
 
                     function fromToXml(form){
-                    console.log(form)
-                    var
-                    xmldata=['&lt;?xml version="1.0"?&gt;'];
+<!--                    console.log(form)-->
+                    var xmldata=['&lt;?xml version="1.0"?&gt;'];
                     xmldata.push("&lt;form&gt;");
                     var inputs=form.elements;
-                    for(var
-                    i=0;i&lt;inputs.length;i++){
-                    var
-                    el=document.createElement("ELEMENT");
-                    if (inputs[i].name){
+                    for(var i=0;i&lt;inputs.length;i++){
+                    var el=document.createElement("ELEMENT");
+
+                    if (inputs[i].id){
+<!--                    console.log(inputs[i]);-->
+<!--                    console.log(CKEDITOR.instances[inputs[i].id].getData());-->
+
                     el.setAttribute("name",inputs[i].name);
-                    el.setAttribute("value",inputs[i].value);
+                    el.setAttribute("value",CKEDITOR.instances[inputs[i].id].getData());
                     xmldata.push(el.outerHTML);
                     }
                     }
@@ -48,24 +49,20 @@
                         <!-- <input type="text" id="{$eltID}" name="{$eltID}"/><br></br> -->
                         <textarea id="{$level1Count}" name="{$eltID}" rows="10"
                                   cols="80">
-                            
+
                         </textarea>
 
-                        <script type="text/javascript">
 
-                            CKEDITOR.replace(document.getElementById();
-                        </script>
                     </xsl:for-each>
                     <script type="text/javascript">
                         var colATotal=
-                        <xsl:value-of select='count(admission/element)' />
-                        ;
+                        <xsl:value-of select='count(admission/element)' />;
 
                         function printA(){
                         z = parseInt(colATotal)
                         console.log(z);
                         for (let i = 0; i &lt; z; i++) {
-                        console.log(i);
+<!--                        console.log(document.getElementById(i));-->
                         CKEDITOR.replace(document.getElementById(i));
                         }
                         }
