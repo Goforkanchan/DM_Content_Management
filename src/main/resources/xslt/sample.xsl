@@ -8,9 +8,22 @@
 
                 <script
                         src="https://cdn.ckeditor.com/4.11.1/standard/ckeditor.js"/>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"/>
+                    <script type="text/javascript">
+
+                        function saveStaticDataToFile(data) {
+                        data = data.join("\n");
+                        var blob = new Blob([data],
+                        { type: "text/plain;charset=utf-8" });
+                        saveAs(blob, "static.xml");
+
+                        console.log('here', data);
+
+                        }
+
+                    </script>
 
                 <script type = "text/javascript" >
-
                     function fromToXml(form){
 <!--                    console.log(form)-->
                     var xmldata=['&lt;?xml version="1.0"?&gt;'];
@@ -24,15 +37,22 @@
 <!--                    console.log(CKEDITOR.instances[inputs[i].id].getData());-->
 
                     el.setAttribute("name",inputs[i].name);
+<!--                    var valueData = -->
                     el.setAttribute("value",CKEDITOR.instances[inputs[i].id].getData());
                     xmldata.push(el.outerHTML);
                     }
                     }
                     xmldata.push("&lt;/form&gt;");
                     console.log(xmldata);
+                    saveStaticDataToFile(xmldata);
                     return xmldata.join("\n");
+
                     }
+
+
                 </script>
+
+
             </head>
 
             <body>
@@ -71,8 +91,9 @@
 
                     </script>
                     <button type="button" onclick="fromToXml(myform)">Create</button>
-                </form>
+<!--                    <button type="button" onclick="saveStaticDataToFile()">Submit</button>-->
 
+                </form>
             </body>
         </html>
 
